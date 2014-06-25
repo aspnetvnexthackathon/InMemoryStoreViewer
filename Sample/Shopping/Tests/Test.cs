@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Moq;
+using System;
+using WebApp.Controllers;
 using Xunit;
 
 namespace Tests
@@ -6,9 +8,9 @@ namespace Tests
     public class Test
     {
         [Fact]
-        public void Test1()
+        public void ControllerDataViewTest()
         {
-
+            var ctrl = new Mock<HomeController>();
         }
     }
 }
