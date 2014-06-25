@@ -1,7 +1,8 @@
 ﻿{
     "dependencies": {
         "EntityFramework.InMemory": "7.0.0-alpha2",
-        "Microsoft.Framework.DependencyInjection": "1.0.0-alpha2"
+        "Microsoft.Framework.DependencyInjection": "1.0.0-alpha2",
+        "System.Reflection": "4.0.10.0"
     },
 
     "configurations" : {

@@ -26,6 +26,7 @@
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extensions\InMemoryStoreViewerAppBuilderExtensions.cs" />
     <Compile Include="InMemoryInformation.cs" />
     <Compile Include="Models\InMemoryStore.cs" />
   </ItemGroup>

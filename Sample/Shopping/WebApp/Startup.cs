@@ -3,6 +3,7 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection.Advanced;
 using WebApp.Models;
+using InMemoryStoreViewer;
 
 namespace WebApp
 {
@@ -20,6 +21,8 @@ namespace WebApp
                 services.AddMvc();
 
                 services.AddTransient<CustomersDbContext>();
+                services.AddSingleton<InMemoryInformation>();
+                services.AddSingleton<ProjectInformationRetriever>();
             });
 
             // Add MVC to the request pipeline

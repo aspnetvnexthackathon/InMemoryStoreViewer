@@ -19,6 +19,7 @@ namespace WebApp.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var user = dbContext.Customers.FirstOrDefault();
             return View(dbContext.Customers);
         }
 
