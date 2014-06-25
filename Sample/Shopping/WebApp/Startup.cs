@@ -21,8 +21,7 @@ namespace WebApp
                 services.AddMvc();
 
                 services.AddTransient<CustomersDbContext>();
-                services.AddSingleton<InMemoryInformation>();
-                services.AddSingleton<ProjectInformationRetriever>();
+                services.AddInMemoryStoreViewer();
             });
 
             // Add MVC to the request pipeline

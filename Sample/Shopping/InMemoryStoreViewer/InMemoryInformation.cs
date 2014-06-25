@@ -1,8 +1,11 @@
 ﻿using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.InMemory;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Linq;
+using System.Diagnostics;
 
 namespace InMemoryStoreViewer
 {
@@ -22,7 +25,36 @@ namespace InMemoryStoreViewer
         {
             var types = InformationRetriever.GetDbContexts();
 
-            return null;
+            var result = new InMemoryStore();
+            foreach (var dbContext in types)
+            {
+                var inMemoryDb = dbContext.Configuration.DataStore as InMemoryDataStore;
+                if (inMemoryDb != null)
+                {
+                    var inMemoryDatabase = new InMemoryDatabase { Name = dbContext.Model.StorageName ?? dbContext.ToString() };
+                    foreach (var entityType in dbContext.Model.EntityTypes)
+                    {
+                        var inMemoryTable = new InMemoryTable { Name = entityType.StorageName };
+                        inMemoryTable.ColumnNames = entityType.Properties.Select(p => p.StorageName).ToList();
+                        inMemoryTable.Rows = new List<InMemoryTableRow>();
+
+                        var table = inMemoryDb.Database.GetTable(entityType);
+                        foreach (var row in table)
+                        {
+                            var inMemoryRow = new InMemoryTableRow { Items = new Dictionary<string, string>() };
+                            inMemoryTable.Rows.Add(inMemoryRow);
+                            Debug.Assert(row.Count() == inMemoryTable.ColumnNames.Count, "Expecting different number of columns in a row");
+                            for (int i = 0; i < row.Count(); i++)
+                            {
+                                inMemoryRow.Items.Add(inMemoryTable.ColumnNames[i], row[i].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            return result;
         }
 
     }
@@ -40,9 +72,9 @@ namespace InMemoryStoreViewer
         /// Get list of Dbcontext files in the application
         /// </summary>
         /// <returns></returns>
-        public IList GetDbContexts()
+        public IList<DbContext> GetDbContexts()
         {
-            var classList = new ArrayList();
+            var classList = new List<DbContext>();
 
             foreach (var assemblyName in AppDomain.CurrentDomain.GetAssemblies())
             {
@@ -56,7 +88,7 @@ namespace InMemoryStoreViewer
                         {
                             var contxt = AppServices.GetService(classType);
 
-                            classList.Add(contxt);
+                            classList.Add((DbContext)contxt);
                         }
                     }
                 } catch(Exception e)
