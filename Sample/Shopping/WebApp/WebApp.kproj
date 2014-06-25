@@ -41,10 +41,11 @@
     <Content Include="Areas\InMemoryStoreViewer\Views\Home\DisplayTemplates\InMemoryDatabase.cshtml" />
     <Content Include="Areas\InMemoryStoreViewer\Views\Home\DisplayTemplates\InMemoryTable.cshtml" />
     <Content Include="Areas\InMemoryStoreViewer\Views\Home\Index.cshtml" />
+    <Content Include="Areas\InMemoryStoreViewer\Views\Home\ViewDatabase.cshtml" />
+    <Content Include="DisplayTemplates\InMemoryTable.cshtml" />
+    <Content Include="InMemoryDatabase.cshtml" />
     <Content Include="project.json" />
     <Content Include="Views\Home\DatabaseViewer.cshtml" />
-    <Content Include="Views\Home\DisplayTemplates\InMemoryDatabase.cshtml" />
-    <Content Include="Views\Home\DisplayTemplates\InMemoryTable.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\AspNet\Microsoft.Web.AspNet.targets" Condition="'$(VSToolsPath)' != ''" />

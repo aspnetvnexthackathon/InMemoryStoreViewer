@@ -8,9 +8,12 @@ namespace WebApp.Areas.InMemoryStoreViewer.Controllers
     public class HomeController : Controller
     {
         InMemoryInformation inMemortyInfo;
+        InMemoryStore inMemoryStore;
+
         public HomeController(InMemoryInformation inMemortyInfo)
         {
             this.inMemortyInfo = inMemortyInfo;
+            inMemoryStore = inMemortyInfo.GetInMemoryInformation();
         }
 
         // GET: /InMemoryStoreViewer/
@@ -18,8 +21,17 @@ namespace WebApp.Areas.InMemoryStoreViewer.Controllers
         // GET: /InMemoryStoreViewer/Home/Index
         public IActionResult Index()
         {
-            var store = inMemortyInfo.GetInMemoryInformation();
-            return View(store);
+            return View(inMemoryStore);
+        }
+
+        public IActionResult ViewDatabase(int index)
+        {
+            return View(inMemoryStore.Databases[index]);
+        }
+
+        public IActionResult ViewTable(int index)
+        {
+            return View();
         }
     }
 }
