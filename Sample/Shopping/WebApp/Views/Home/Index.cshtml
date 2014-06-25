@@ -6,7 +6,4 @@
 
 <h2>Index</h2>
 
-@foreach (var customer in Model)
-{
-    <label>@customer.Name</label><br/>
-}
+@Html.ActionLink("Show InMemoryStore Information", "Index", "Home", new { area = "InMemoryStoreViewer" })
