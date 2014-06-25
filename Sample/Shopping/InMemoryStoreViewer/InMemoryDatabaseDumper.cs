@@ -7,10 +7,19 @@ namespace InMemoryStoreViewer
 
     public class InMemoryDatabaseDumper
     {
-        public static void DumpDatabaseToFile(IServiceProvider services, string path)
+        public IServiceProvider ServiceProvider { get; set; }
+
+        public InMemoryDatabaseDumper(IServiceProvider services)
         {
-            var inMemoryInfo = new InMemoryInformation(services, new ProjectInformationRetriever(services));
+            ServiceProvider = services;
+        }
+
+        public void DumpDatabaseToFile(string path)
+        {
+            var inMemoryInfo = ServiceProvider.GetService(typeof(InMemoryInformation)) as InMemoryInformation;
+
             var jsonString = JsonConvert.SerializeObject(inMemoryInfo.GetInMemoryInformation());
+
             File.WriteAllText(path, jsonString);
         }
     }
