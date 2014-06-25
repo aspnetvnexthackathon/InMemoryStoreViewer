@@ -21,7 +21,9 @@
                 foreach (var database in Model.Databases)
                 {
                     <tr>
-                    @Html.ActionLink(database.Name, "ViewDatabase", "Home", new { index });
+                        <td>
+                            @Html.ActionLink(database.Name, "ViewDatabase", "Home", new { index })
+                        </td>
                     </tr>
                     index++;
 
