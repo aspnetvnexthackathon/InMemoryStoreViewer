@@ -7,7 +7,7 @@ namespace WebApp
     /// <summary>
     /// Summary description for DataViewer
     /// </summary>
-    public class DataViewerController :Controller
+    public class DataViewerController : Controller
     {
         public InMemoryInformation Information { get; set; }
 
