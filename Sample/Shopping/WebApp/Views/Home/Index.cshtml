@@ -1,0 +1,12 @@
+﻿@model System.Collections.Generic.IEnumerable<WebApp.Models.Customer>
+@{
+    //Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Index</h2>
+
+@foreach (var customer in Model)
+{
+    <label>@customer.Name</label><br/>
+}
