@@ -1,0 +1,11 @@
+﻿@model InMemoryStoreViewer.InMemoryStore
+@{
+    // Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Database Viewer";
+}
+
+@foreach (var database in Model.Databases)
+{
+    @Html.DisplayFor(m => database);
+    
+}

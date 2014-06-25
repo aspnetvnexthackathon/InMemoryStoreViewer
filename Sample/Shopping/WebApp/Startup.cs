@@ -14,7 +14,7 @@ namespace WebApp
             app.UseServices(services =>
             {
                 // Add EF services to the services container
-                services.AddEntityFramework().AddInMemoryStore().UseDbSetInitializer<CustomersDbContextInitializer>();
+                services.AddEntityFramework().AddInMemoryStore();
 
                 // Add MVC services to the services container
                 services.AddMvc();

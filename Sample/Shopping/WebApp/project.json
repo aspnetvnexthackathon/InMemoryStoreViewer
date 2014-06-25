@@ -2,7 +2,8 @@
     "dependencies": {
         "Microsoft.AspNet.Server.IIS" : "1.0.0-alpha2",
         "EntityFramework.InMemory": "7.0.0-alpha2",
-        "Microsoft.AspNet.Mvc": "6.0.0-alpha2"
+        "Microsoft.AspNet.Mvc": "6.0.0-alpha2",
+        "InMemoryStoreViewer": ""
     },
     "configurations" : {
         "net451" : { },
