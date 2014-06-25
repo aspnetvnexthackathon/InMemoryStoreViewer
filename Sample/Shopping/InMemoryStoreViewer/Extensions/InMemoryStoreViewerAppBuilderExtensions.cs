@@ -13,6 +13,7 @@ namespace Microsoft.Framework.DependencyInjection
         {
             services.AddSingleton<InMemoryInformation>();
             services.AddSingleton<ProjectInformationRetriever>();
+            services.AddSingleton<InMemoryDatabaseDumper>();
         }
      }
 }
