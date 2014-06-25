@@ -23,9 +23,24 @@ namespace Tests
         {
 
             var controller = new HomeController(serviceProvider.GetService<CustomersDbContext>());
-           // var result = controller.Index();
+            var result = controller.DeleteUser("fooId");
 
-            AppAssertEqual(() => Assert.Equal("foo", "bar"));
+            AppAssertEqual(() => Assert.Equal(result, true));
+        }
+
+        private void AppAssertEqual(Action action)
+        {
+            try
+            {
+                action();
+
+            }
+            catch (Exception e)
+            {
+                var dumpWriter = serviceProvider.GetService<InMemoryStoreViewer.InMemoryDatabaseDumper>();
+                dumpWriter.DumpDatabaseToFile(@"C:\Users\sujosh\Desktop\memdump.txt");
+                Assert.True(false, "Test failed");
+            }
         }
 
         private void SetupServices()
@@ -45,19 +60,7 @@ namespace Tests
             CustomersDbContext.CreateSampleData(serviceProvider);
         }
 
-        private void AppAssertEqual(Action action)
-        {
-            try
-            {
-                action();
-
-            } catch(Exception e)
-            {
-                var dumpWriter = serviceProvider.GetService<InMemoryStoreViewer.InMemoryDatabaseDumper>();
-                dumpWriter.DumpDatabaseToFile(@"C:\Users\sujosh\Desktop\memdump.txt");
-
-            }
-        }
+        
     }
 
 }
