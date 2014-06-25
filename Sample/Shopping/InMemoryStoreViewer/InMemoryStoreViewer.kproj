@@ -8,28 +8,26 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
   </PropertyGroup>
-
   <Import Project="$(VSToolsPath)\AspNet\Microsoft.Web.AspNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>3b76522d-0fc5-44af-b7a1-72bf95c8a276</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>InMemoryStoreViewer</RootNamespace>
   </PropertyGroup>
-
   <PropertyGroup Condition="$(OutputType) == 'Console'">
     <DebuggerFlavor>ConsoleDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="$(OutputType) == 'Web'">
     <DebuggerFlavor>WebDebugger</DebuggerFlavor>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'" Label="Configuration">
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="InMemoryInformation.cs" />
+    <Compile Include="Models\InMemoryStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="project.json" />
