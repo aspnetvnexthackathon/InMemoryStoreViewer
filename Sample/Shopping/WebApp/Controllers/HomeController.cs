@@ -10,7 +10,8 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        CustomersDbContext dbContext;
+       public CustomersDbContext dbContext { get; set; }
+
         public HomeController(CustomersDbContext dbContext)
         {
             this.dbContext = dbContext;
