@@ -50,5 +50,10 @@ namespace WebApp.Controllers
 
             return View(store);
         }
+
+        public bool DeleteUser(string id)
+        {
+            return false;
+        }
     }
 }
