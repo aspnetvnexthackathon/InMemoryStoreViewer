@@ -1,0 +1,26 @@
+﻿@model InMemoryStoreViewer.InMemoryTable
+
+<h2>@Model.Name</h2>
+
+<table>
+    <thead>
+        <tr>
+            @foreach (var columnName in Model.ColumnNames)
+            {
+            <th>@columnName</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var row in Model.Rows)
+            {
+        <tr>
+            @foreach (var columnName in Model.ColumnNames)
+                {
+            <td>@row.Items[columnName]</td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
