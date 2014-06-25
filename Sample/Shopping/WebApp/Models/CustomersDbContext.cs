@@ -43,14 +43,31 @@ namespace WebApp.Models
 
             Customer cust1 = new Customer();
             cust1.Id = 1;
-            cust1.Name = "Mike";
+            cust1.Name = "Mike Walsh";
 
             Customer cust2 = new Customer();
             cust2.Id = 2;
-            cust2.Name = "John";
+            cust2.Name = "John Doe";
+
+            Customer cust3 = new Customer();
+            cust3.Id = 3;
+            cust3.Name = "Jane Taylor";
+
+            Customer cust4 = new Customer();
+            cust4.Id = 4;
+            cust4.Name = "Priya Nirantar";
+
+
+            Customer cust5 = new Customer();
+            cust5.Id = 5;
+            cust5.Name = "David Rader";
 
             dbContext.Customers.Add(cust1);
             dbContext.Customers.Add(cust2);
+            dbContext.Customers.Add(cust3);
+            dbContext.Customers.Add(cust4);
+            dbContext.Customers.Add(cust5);
+
             dbContext.SaveChanges();
 
             Order order1 = new Order();
@@ -62,11 +79,18 @@ namespace WebApp.Models
             Order order2 = new Order();
             order2.Customer = cust2;
             order2.CustomerId = cust2.Id;
-            order2.Id = 1;
+            order2.Id = 2;
+            order2.OrderedDate = DateTime.UtcNow;
+
+            Order order3 = new Order();
+            order2.Customer = cust3;
+            order2.CustomerId = cust3.Id;
+            order2.Id = 3;
             order2.OrderedDate = DateTime.UtcNow;
 
             dbContext.Orders.Add(order1);
             dbContext.Orders.Add(order2);
+            dbContext.Orders.Add(order3);
             dbContext.SaveChanges();
         }
     }
