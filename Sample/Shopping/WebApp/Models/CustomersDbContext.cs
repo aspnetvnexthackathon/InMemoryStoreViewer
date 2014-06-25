@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
+using Microsoft.Framework.OptionsModel;
 using System;
 
 namespace WebApp.Models
@@ -10,6 +11,14 @@ namespace WebApp.Models
 
         public DbSet<Order> Orders { get; set; }
 
+        public CustomersDbContext(IServiceProvider serviceProvider, IOptionsAccessor<DbContextOptions> optionsAccessor)
+            : base(serviceProvider, optionsAccessor.Options)
+        {
+            // Create the database and schema if it doesn't exist
+            // This is a temporary workaround to create database until Entity Framework database migrations 
+            // are supported in ASP.NET vNext
+            
+        }
         protected override void OnConfiguring(DbContextOptions builder)
         {
             SetupDataStore(builder);

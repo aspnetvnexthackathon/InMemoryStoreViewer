@@ -2,6 +2,7 @@
 using Microsoft.Data.Entity.InMemory;
 using System;
 using WebApp.Models;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,19 +10,18 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        InMemoryDatabase database;
+        InMemoryDatabase Database;
         CustomersDbContext dbContext;
         public HomeController(InMemoryDatabase database, CustomersDbContext dbContext)
         {
-            this.database = database;
+            this.Database = database;
             this.dbContext = dbContext;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
-            
-            foreach(var table in database)
+            foreach(var table in Database)
             {
                 foreach(var row in table)
                 {
