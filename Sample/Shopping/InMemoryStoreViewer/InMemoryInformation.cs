@@ -10,12 +10,18 @@ namespace InMemoryStoreViewer
     {
         public IServiceProvider Services { get; set; }
 
+<<<<<<< HEAD
         public ProjectInformationRetriever InformationRetriever { get; set; }
 
         public InMemoryInformation(IServiceProvider services, ProjectInformationRetriever informationRetriever)
         {
             Services = services;
             InformationRetriever = informationRetriever;
+=======
+        public InMemoryInformation(IServiceProvider services)
+        {
+            Services = services;
+>>>>>>> 04120339c34b12ce8a59321e8c8db2032273379e
         }
 
         public InMemoryStore GetInMemoryInformation()
