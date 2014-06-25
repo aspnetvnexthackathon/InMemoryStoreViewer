@@ -87,7 +87,7 @@ namespace InMemoryStoreViewer
 
                     foreach (var classType in assembly.GetTypes())
                     {
-                        if (classType.BaseType != null && classType.BaseType.Equals(typeof(DbContext)))
+                        if (typeof(DbContext).IsAssignableFrom(classType))
                         {
                             var contxt = AppServices.GetService(classType);
 

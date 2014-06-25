@@ -4,6 +4,10 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection.Advanced;
 using WebApp.Models;
 using InMemoryStoreViewer;
+using Microsoft.Framework.ConfigurationModel;
+using Microsoft.AspNet.Security.Cookies;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Http;
 
 namespace WebApp
 {
@@ -17,11 +21,23 @@ namespace WebApp
                 // Add EF services to the services container
                 services.AddEntityFramework().AddInMemoryStore();
 
+                // Add Identity services to the services container
+                services.AddIdentity<ApplicationUser>()
+                    .AddEntityFramework<ApplicationUser, ApplicationDbContext>()
+                    .AddHttpSignIn();
+
                 // Add MVC services to the services container
                 services.AddMvc();
 
                 services.AddTransient<CustomersDbContext>();
                 services.AddInMemoryStoreViewer();
+            });
+
+            // Add cookie-based authentication to the request pipeline
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                LoginPath = new PathString("/Account/Login"),
             });
 
             // Add MVC to the request pipeline
