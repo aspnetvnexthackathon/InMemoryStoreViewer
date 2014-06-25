@@ -18,9 +18,9 @@ namespace InMemoryStoreViewer
         {
             var inMemoryInfo = ServiceProvider.GetService(typeof(InMemoryInformation)) as InMemoryInformation;
 
-            var jsonString = JsonConvert.SerializeObject(inMemoryInfo.GetInMemoryInformation());
+            var jsonString = JsonConvert.SerializeObject(inMemoryInfo.GetInMemoryInformation(), new JsonSerializerSettings() { Formatting=Formatting.Indented});
 
-            File.WriteAllText(path, jsonString);
+            File.AppendAllText(path, jsonString);
         }
     }
 }
