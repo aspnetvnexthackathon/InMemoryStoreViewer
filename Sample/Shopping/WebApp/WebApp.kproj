@@ -29,6 +29,7 @@
     <DevelopmentServerPort>26182</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DataViewer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomersDbContext.cs" />
