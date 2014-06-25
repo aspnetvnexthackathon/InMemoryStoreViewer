@@ -83,10 +83,10 @@ namespace WebApp.Models
             order2.OrderedDate = DateTime.UtcNow;
 
             Order order3 = new Order();
-            order2.Customer = cust3;
-            order2.CustomerId = cust3.Id;
-            order2.Id = 3;
-            order2.OrderedDate = DateTime.UtcNow;
+            order3.Customer = cust3;
+            order3.CustomerId = cust3.Id;
+            order3.Id = 3;
+            order3.OrderedDate = DateTime.UtcNow;
 
             dbContext.Orders.Add(order1);
             dbContext.Orders.Add(order2);
