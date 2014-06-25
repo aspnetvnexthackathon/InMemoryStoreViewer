@@ -37,6 +37,8 @@ namespace WebApp
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+            CustomersDbContext.CreateSampleData(app.ApplicationServices);
         }
     }
 }

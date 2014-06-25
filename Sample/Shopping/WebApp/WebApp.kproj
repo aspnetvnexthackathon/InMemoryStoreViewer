@@ -42,7 +42,6 @@
     <Content Include="Areas\InMemoryStoreViewer\Views\Home\DisplayTemplates\InMemoryTable.cshtml" />
     <Content Include="Areas\InMemoryStoreViewer\Views\Home\Index.cshtml" />
     <Content Include="project.json" />
-    <Content Include="Views\Home\CreateData.cshtml" />
     <Content Include="Views\Home\DatabaseViewer.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\InMemoryDatabase.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\InMemoryTable.cshtml" />
