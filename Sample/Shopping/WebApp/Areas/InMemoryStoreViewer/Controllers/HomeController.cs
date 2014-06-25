@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using InMemoryStoreViewer;
+using Microsoft.AspNet.Mvc;
 
 
 namespace WebApp.Areas.InMemoryStoreViewer.Controllers
@@ -6,15 +7,19 @@ namespace WebApp.Areas.InMemoryStoreViewer.Controllers
     [Area("InMemoryStoreViewer")]
     public class HomeController : Controller
     {
-        public HomeController()
+        InMemoryInformation inMemortyInfo;
+        public HomeController(InMemoryInformation inMemortyInfo)
         {
-
+            this.inMemortyInfo = inMemortyInfo;
         }
 
-        // GET: /<controller>/
+        // GET: /InMemoryStoreViewer/
+        // GET: /InMemoryStoreViewer/Home
+        // GET: /InMemoryStoreViewer/Home/Index
         public IActionResult Index()
         {
-            return View();
+            var store = inMemortyInfo.GetInMemoryInformation();
+            return View(store);
         }
     }
 }

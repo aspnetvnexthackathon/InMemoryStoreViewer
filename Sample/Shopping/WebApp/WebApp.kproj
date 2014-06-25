@@ -29,6 +29,7 @@
     <DevelopmentServerPort>26182</DevelopmentServerPort>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Areas\InMemoryStoreViewer\Controllers\HomeController.cs" />
     <Compile Include="Controllers\DataViewer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -37,6 +38,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\InMemoryStoreViewer\Views\Home\DisplayTemplates\InMemoryDatabase.cshtml" />
+    <Content Include="Areas\InMemoryStoreViewer\Views\Home\DisplayTemplates\InMemoryTable.cshtml" />
+    <Content Include="Areas\InMemoryStoreViewer\Views\Home\Index.cshtml" />
     <Content Include="project.json" />
     <Content Include="Views\Home\CreateData.cshtml" />
     <Content Include="Views\Home\DatabaseViewer.cshtml" />

@@ -32,9 +32,12 @@ namespace InMemoryStoreViewer
                 if (inMemoryDb != null)
                 {
                     var inMemoryDatabase = new InMemoryDatabase { Name = dbContext.Model.StorageName ?? dbContext.ToString() };
+                    result.Databases.Add(inMemoryDatabase);
                     foreach (var entityType in dbContext.Model.EntityTypes)
                     {
                         var inMemoryTable = new InMemoryTable { Name = entityType.StorageName };
+                        inMemoryDatabase.Tables.Add(inMemoryTable);
+
                         inMemoryTable.ColumnNames = entityType.Properties.Select(p => p.StorageName).ToList();
                         inMemoryTable.Rows = new List<InMemoryTableRow>();
 

@@ -30,7 +30,7 @@ namespace WebApp
                 routes.MapRoute(
                     name: "AreaRoute",
                     template: "{area}/{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index"});
 
                 routes.MapRoute(
                     name: "default",
