@@ -27,6 +27,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Extensions\InMemoryStoreViewerAppBuilderExtensions.cs" />
+    <Compile Include="InMemoryDatabaseDumper.cs" />
     <Compile Include="InMemoryInformation.cs" />
     <Compile Include="Models\InMemoryStore.cs" />
   </ItemGroup>
